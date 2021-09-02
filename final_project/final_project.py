@@ -45,6 +45,7 @@
 from requests import post
 from requests import codes
 import math
+import json
 try:
     from intent import Loki_ExtremeFear
     from intent import Loki_Fearjessie
@@ -59,9 +60,14 @@ except:
     from .intent import Loki_ExtremeGreed
 
 
+accountDICT = json.load(open("account_info.py"))
+    
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
-USERNAME = ""
-LOKI_KEY = ""
+#USERNAME = "chenjonathan901210@gmail.com"
+#LOKI_KEY = "xoVPSPaVLsV_&P$1yswzZxp-lm=uO4r"
+USERNAME = accountDICT["username"]
+LOKI_KEY = accountDICT["lokikey"]
+
 # 意圖過濾器說明
 # INTENT_FILTER = []        => 比對全部的意圖 (預設)
 # INTENT_FILTER = [intentN] => 僅比對 INTENT_FILTER 內的意圖
@@ -238,7 +244,7 @@ if __name__ == "__main__":
     print("")
 
     # 輸入其它句子試看看
-    #inputLIST = ["輸入你的內容1", "輸入你的內容2"]
-    #filterLIST = []
-    #resultDICT = runLoki(inputLIST, filterLIST)
-    #print("Result => {}".format(resultDICT))
+    inputLIST = ["股價狂拉2000點"]
+    filterLIST = []
+    resultDICT = runLoki(inputLIST, filterLIST)
+    print("Result => {}".format(resultDICT))
