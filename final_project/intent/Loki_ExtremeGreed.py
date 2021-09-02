@@ -23,49 +23,50 @@ def debugInfo(inputSTR, utterance):
         print("[ExtremeGreed] {} ===> {}".format(inputSTR, utterance))
 
 def getResult(inputSTR, utterance, args, resultDICT):
+    resultDICT["ExtremeGreed"]=[]
     debugInfo(inputSTR, utterance)
     if utterance == "[一][路]發":
-        # write your code here
+        resultDICT["ExtremeGreed"].append("極度貪婪")
         pass
 
     if utterance == "[今天][大盤]漲[那][麼]多":
-        # write your code here
+        resultDICT["ExtremeGreed"].append("極度貪婪")
         pass
 
     if utterance == "[今天]恭喜各位[都][大漲]":
-        # write your code here
+        resultDICT["ExtremeGreed"].append("極度貪婪")
         pass
 
     if utterance == "[台指][狂]拉[200][點]":
-        # write your code here
+        resultDICT["ExtremeGreed"].append("極度貪婪")
         pass
 
     if utterance == "[國內][的][成績][相當]不容易":
-        # write your code here
+        resultDICT["ExtremeGreed"].append("極度貪婪")
         pass
 
     if utterance == "[基本面]佳":
-        # write your code here
+        resultDICT["ExtremeGreed"].append("極度貪婪")
         pass
 
     if utterance == "[我][這][還有][多的]紙箱":
-        # write your code here
+        resultDICT["ExtremeGreed"].append("極度貪婪")
         pass
 
     if utterance == "[擠得]沒地方躺":
-        # write your code here
+        resultDICT["ExtremeGreed"].append("極度貪婪")
         pass
 
     if utterance == "[昨天][航運類股]大漲":
-        # write your code here
+        resultDICT["ExtremeGreed"].append("極度貪婪")
         pass
 
     if utterance == "[高檔]猛追":
-        # write your code here
+        resultDICT["ExtremeGreed"].append("極度貪婪")
         pass
 
     if utterance == "公園[裡]人山人海":
-        # write your code here
+        resultDICT["ExtremeGreed"].append("極度貪婪")
         pass
 
     return resultDICT
