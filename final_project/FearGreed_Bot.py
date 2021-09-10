@@ -15,7 +15,7 @@ from intent import Loki_ExtremeGreed
 
 
 
-with open("account.info", encoding="utf-8") as f:
+with open("account_info.py", encoding="utf-8") as f:
     accountDICT = json.loads(f.read())
 
 class BotClient(discord.Client):
@@ -49,16 +49,16 @@ class BotClient(discord.Client):
                 print("Result => {}".format(resultDICT))
                   
                 
-                #if resultDICT[ExtremeFear] == True:
-                    #responseSTR = resultDICT["ExtremeFear"]
-                #elif resultDICT[ExtremeGreed] == True:
-                    #responseSTR = resultDICT["ExtremeGreed"]
-                #elif resultDICT[Neutral] == True:
-                    #responseSTR = resultDICT["Neutral"]  
-                #elif resultDICT[Fear] == True:
-                    #responseSTR = resultDICT["Fear"]     
-                #elif resultDICT[Greed] == True:
-                    #responseSTR = resultDICT["Greed"]   
+                if resultDICT[ExtremeFear] == True:
+                    responseSTR = resultDICT["ExtremeFear"]
+                elif resultDICT[ExtremeGreed] == True:
+                    responseSTR = resultDICT["ExtremeGreed"]
+                elif resultDICT[Neutral] == True:
+                    responseSTR = resultDICT["Neutral"]  
+                elif resultDICT[Fear] == True:
+                    responseSTR = resultDICT["Fear"]     
+                elif resultDICT[Greed] == True:
+                    responseSTR = resultDICT["Greed"]   
                 
                 await message.reply(responseSTR)
 
