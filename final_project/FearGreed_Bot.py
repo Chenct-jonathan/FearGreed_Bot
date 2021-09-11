@@ -39,30 +39,37 @@ class BotClient(discord.Client):
                 await message.reply('ponng pong')
             else:
                 #從這裡開始接上 NLU 模型
-                
-                
-                responseSTR = "我是預設的回應字串…你會看到我這串字，肯定是出了什麼錯！"
-                
+
+
+                responseLIST = ["我是預設的回應字串…你會看到我這串字，肯定是出了什麼錯！"]
+
                 inputLIST = [msg]
                 filterLIST = []
-                resultDICT = runLoki([inputLIST, filterLIST])
+                resultDICT = runLoki(inputLIST, filterLIST)
                 print("Result => {}".format(resultDICT))
-                  
-                
-                if resultDICT[ExtremeFear] == True:
-                    responseSTR = resultDICT["ExtremeFear"]
-                elif resultDICT[ExtremeGreed] == True:
-                    responseSTR = resultDICT["ExtremeGreed"]
-                elif resultDICT[Neutral] == True:
-                    responseSTR = resultDICT["Neutral"]  
-                elif resultDICT[Fear] == True:
-                    responseSTR = resultDICT["Fear"]     
-                elif resultDICT[Greed] == True:
-                    responseSTR = resultDICT["Greed"]   
-                
+
+                indexSTR = ""
+                if "ExtremeFear" in resultDICT.keys() and resultDICT["ExtremeFear"] != []:
+                    responseLIST = [int(i) for i in resultDICT["ExtremeFear"]]
+                    indexSTR = "ExtremeFear"
+                elif "ExtremeGreed" in resultDICT.keys() and resultDICT["ExtremeGreed"] != []:
+                    responseLIST = [int(i) for i in resultDICT["ExtremeGreed"]]
+                    indexSTR = "ExtremeGreed"
+                elif "Neutral" in resultDICT.keys() and resultDICT["Neutral"] != []:
+                    responseLIST = [int(i) for i in resultDICT["Neutral"]]
+                    indexSTR = "Neutral"
+                elif "Fear" in resultDICT.keys() and resultDICT["Fear"] != []:
+                    responseLIST = [int(i) for i in resultDICT["Fear"]]
+                    indexSTR = "Fear"
+                elif "Greed" in resultDICT.keys() and resultDICT["Greed"] != []:
+                    responseLIST = [int(i) for i in resultDICT["Greed"]]
+                    indexSTR = "Greed"
+                if "我是預設的回應字串…你會看到我這串字，肯定是出了什麼錯！" in responseLIST:
+                    responseSTR = responseLIST[0]
+                else:
+                    responseSTR = "判斷結果為{}指數為{}".format(indexSTR,sum(responseLIST))
                 await message.reply(responseSTR)
 
 if __name__ == "__main__":
     client = BotClient()
     client.run(accountDICT["discord_token"])
-    
