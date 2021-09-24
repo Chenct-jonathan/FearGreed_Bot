@@ -15,7 +15,7 @@ from intent import Loki_ExtremeGreed
 
 
 
-with open("account_info.py", encoding="utf-8") as f:
+with open("account.info.json", encoding="utf-8") as f:
     accountDICT = json.loads(f.read())
 
 class BotClient(discord.Client):
