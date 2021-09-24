@@ -61,7 +61,7 @@ except:
 
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
-with open("account_info.py", encoding="utf-8") as f:
+with open("account.info.json", encoding="utf-8") as f:
     accountDICT = json.loads(f.read())
 USERNAME = accountDICT["username"]
 LOKI_KEY = accountDICT["lokikey"]
